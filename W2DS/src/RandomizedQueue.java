@@ -1,6 +1,7 @@
 	import java.util.Iterator;
 	import java.util.NoSuchElementException;
-
+	import edu.princeton.cs.algs4.StdRandom;
+	
 	public class RandomizedQueue<Item> implements Iterable<Item> {
 
 	   private Item[] q;
@@ -63,23 +64,12 @@
 
 	           int index = (first + choosen) % q.length;
 
-	           //   StdOut.printf("swap between :last:%d index:%d first:%d
-	           //   choosen:%d\n", last, index, first, choosen);
-
 	           if (last == 0)
 	               swap(q.length - 1, index);
 	           else
 	               swap(last - 1, index);
 	       }
 	   }
-
-	   // public void dump()
-	   //     {
-	   //         StdOut.printf("----------------------\n");
-	   //      for (Item i : q)
-	   //          StdOut.printf("ARRAY: %s\n", i);
-	   //  }
-
 
 	   public Item dequeue()              // delete and return a random item
 	   {
@@ -98,6 +88,8 @@
 	   public Item sample()               // return (but do not delete) a
 	                                      // random item
 	   {
+		   if (isEmpty())
+	            throw new NoSuchElementException();
 	       int choosen = StdRandom.uniform(N);
 	       int index = (first + choosen) % q.length;
 	       return q[index];
@@ -118,11 +110,4 @@
 	            return item;
 	        }
 	    }
-
-	}        // return an independent iterator over items in random order
-   //public static void main(String[] args)   // unit testing (optional)
-//
-//Throw a java.lang.IllegalArgumentException if the client calls enqueue() with a null argument.
-//Throw a java.util.NoSuchElementException if the client calls either sample() or dequeue() when the randomized queue is empty.
-//Throw a java.util.NoSuchElementException if the client calls the next() method in the iterator when there are no more items to return.
-//Throw a java.lang.UnsupportedOperationException if the client calls the remove() method in the iterator.
+	}

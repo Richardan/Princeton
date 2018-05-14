@@ -133,7 +133,7 @@ public class Deque<Item> implements Iterable<Item> {
 	   
    }
    
-   public static void main(String[] args) 
+ /*  public static void main(String[] args) 
    {
 	   Deque<Integer> d = new Deque();
 	   for(int i = 0; i < 10; i++) {
@@ -155,7 +155,7 @@ public class Deque<Item> implements Iterable<Item> {
 	   {
 		   System.out.print("\n"+d.removeLast());
 	   }
-   }// unit testing (optional)
+   }*/// unit testing (optional)
 }
 //
 //Throw a java.lang.IllegalArgumentException if the client calls either addFirst() or addLast() with a null argument.
